@@ -14,3 +14,8 @@ a {
 * {
   box-sizing: border-box;
 }
+.aboutPage{
+  margin-top:"20% !important"; 
+  margin-right:"20% !important"; 
+  margin-left:"20% !important"; 
+}
