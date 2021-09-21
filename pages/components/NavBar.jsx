@@ -1,87 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function NavBar() {
-  return (
-    <div>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="/">
-          Danan! 
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarColor02"
-          aria-controls="navbarColor02"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+  const [Open, setOpen] = useState(false);
+  const [isFullScreen, setIsFullScreen] = useState(handleToggle("width")<=720 ? true :false);
+  
 
-        <div class="collapse navbar-collapse" id="navbarColor02">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/home">
+function findWidth() {
+    //return screen.width
+}
+  function handleToggle(params) {
+    // alert("hi")
+    //console.log(window.location);
+  /*   if(params === "width"){
+        alert(screen.width);
+    }
+  if(params === "navBar"){
+      setOpen(!Open); 
+  }*/
+  }
+  return (
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a className="navbar-brand" href="/">
+        Danan!
+      </a>
+      <button
+        className="navbar-toggler collapsed"
+        type="button"
+        onClick={() => handleToggle("navBar")}
+      >
+        <span className="navbar-toggler-icon"></span>
+      </button>
+
+      {Open && (
+        <div className="navbar-collapse" id="navbarColor01">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item active">
+              <a className="nav-link" href="/home">
                 Home
-                <span class="sr-only">(current)</span>
+                <span className="sr-only">(current)</span>
               </a>
             </li>
-           {/*  <li class="nav-item">
-              <a class="nav-link" href="#">
-                Features
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                Pricing
-              </a>
-            </li> */}
-            <li class="nav-item">
-              <a class="nav-link" href="/about">
+            <li className="nav-item">
+              <a className="nav-link" href="/about">
                 About
               </a>
             </li>
-           {/*  <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                data-toggle="dropdown"
-                href="#"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">
-                  Action
-                </a>
-                <a class="dropdown-item" href="#">
-                  Another action
-                </a>
-                <a class="dropdown-item" href="#">
-                  Something else here
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
-                  Separated link
-                </a>
-              </div>
-            </li> */}
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input
-              class="form-control mr-sm-2"
-              type="text"
-              placeholder="Search"
-            />
-            <button class="btn btn-info my-2 my-sm-0" type="submit">
-              Search
-            </button>
-          </form>
         </div>
-      </nav>
-    </div>
+      )}
+    </nav>
   );
 }
